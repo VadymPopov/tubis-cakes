@@ -4,6 +4,7 @@ import {
   PiInstagramLogoThin,
 } from 'react-icons/pi';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -21,7 +22,16 @@ export default function Footer() {
           <PiGithubLogoThin className="text-2xl text-mainDarkColor transition-colors " />
         </Link>
       </div>
-      <span className="order-1 mb-4 text-base md:order-2 md:mb-0 lg:text-lg">
+      <span className="order-1 mb-4 text-base md:order-2 md:mb-0 lg:text-lg flex  flex-col justify-center items-center">
+        <Link href="/">
+          <Image
+            src="/circle-logo.svg"
+            alt="logo"
+            width="200"
+            height="200"
+            className="max-w-52 max-h-52"
+          />
+        </Link>
         &copy; 2024, Tubi&apos;s Cakes.
       </span>
       <div className="order-2 mb-4 flex md:order-3 md:mb-0 gap-2.5">

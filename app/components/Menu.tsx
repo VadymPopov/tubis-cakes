@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const menu = [
   {
@@ -37,8 +37,16 @@ type MenuProps = {
 };
 
 export default function Menu({ onClick }: MenuProps) {
+  const router = useRouter();
   const pathname = usePathname();
   const isActive = (path: string) => path === pathname;
+
+  const handleMenuClick = (path: string) => {
+    router.push(path);
+    if (onClick) {
+      onClick();
+    }
+  };
 
   return (
     <ul className="flex flex-col md:flex-row list-none justify-center md:items-center">
@@ -50,9 +58,9 @@ export default function Menu({ onClick }: MenuProps) {
             isActive(path) ? 'text-mainLightColor' : 'text-mainDarkColor',
             'py-2.5 sm:py-5 px-6 sm:px-4 hover:text-mainLightColor md:hover:text-mainDarkColor hover:bg-peach md:hover:bg-transparent  block whitespace-nowrap text-xl font-medium md:font-normal tracking-wide no-underline transition-colors duration-300 sm:text-2xl md:text-xl uppercase cursor-pointer hover:border-mainDarkColor hover:border-y border-y-transparent',
           )}
-          onClick={onClick}
+          onClick={() => handleMenuClick(path)}
         >
-          <Link href={path}>{label}</Link>
+          {label}
         </li>
       ))}
 
@@ -75,9 +83,9 @@ export default function Menu({ onClick }: MenuProps) {
             isActive(path) ? 'text-mainLightColor' : 'text-mainDarkColor',
             'py-2.5 sm:py-5 px-6 sm:px-4 hover:text-mainLightColor md:hover:text-mainDarkColor hover:bg-peach md:hover:bg-transparent  block whitespace-nowrap text-xl font-medium md:font-normal tracking-wide no-underline transition-colors duration-300 sm:text-2xl md:text-xl uppercase cursor-pointer hover:border-mainDarkColor hover:border-y border-y-transparent',
           )}
-          onClick={onClick}
+          onClick={() => handleMenuClick(path)}
         >
-          <Link href={path}>{label}</Link>
+          {label}
         </li>
       ))}
     </ul>
