@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-textColor;
+  @apply text-mainDarkColor;
   @apply text-sm;
 }
 

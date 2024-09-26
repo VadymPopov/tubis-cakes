@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
 import './globals.css';
 
 const roboto = Roboto({
@@ -22,7 +26,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <NextTopLoader
+          color="#3b82f6"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="easeIn"
+          speed={200}
+          shadow="0 0 10px #3b82f6, 0 0 5px #3b82f6"
+        />
+        <Header />
+        <Navigation />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
