@@ -23,7 +23,9 @@ export const metadata: Metadata = {
 export default function Shop() {
   return (
     <>
-      <section className="">Shop</section>
+      <section className="flex justify-center items-center h-full bg-mint">
+        Shop
+      </section>
     </>
   );
 }

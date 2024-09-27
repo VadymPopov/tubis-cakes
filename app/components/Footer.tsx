@@ -34,7 +34,7 @@ export default function Footer() {
         </Link>
         &copy; 2024, Tubi&apos;s Cakes.
       </span>
-      <div className="order-2 mb-4 flex md:order-3 md:mb-0 gap-2.5">
+      <div className="order-2 mb-4 flex md:order-3 md:mb-0 gap-2.5 pl-[92px]">
         <Link
           href="https://www.instagram.com/tubiscakes.toronto/"
           target="_blank"

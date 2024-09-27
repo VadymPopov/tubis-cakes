@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <NextTopLoader
-          color="#3b82f6"
+          color="#303030"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -36,7 +36,7 @@ export default function RootLayout({
           showSpinner={false}
           easing="easeIn"
           speed={200}
-          shadow="0 0 10px #3b82f6, 0 0 5px #3b82f6"
+          shadow="0 0 10px #303030, 0 0 5px #303030"
         />
         <Header />
         <Navigation />

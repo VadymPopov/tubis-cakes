@@ -42,7 +42,7 @@ export default function Navigation() {
   return (
     <div
       className={clsx(
-        'bg-primary w-full h-40 md:h-full md:block flex justify-between items-center transition duration-500 ease-in-out',
+        'bg-primary w-full h-40 md:h-full md:block flex justify-between items-center transition duration-500 ease-in-out z-[100]',
         isVisible ? 'sticky top-0 opacity-100' : 'opacity-70',
       )}
     >
