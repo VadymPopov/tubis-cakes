@@ -58,6 +58,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'prettier/prettier': 'warn',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
   settings: {
     react: {

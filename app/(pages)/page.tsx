@@ -1,5 +1,6 @@
 'use client';
 
+import Button from '../components/Button';
 import SwiperReact from '../components/SwiperReact';
 
 export default function Home() {
@@ -7,12 +8,10 @@ export default function Home() {
     <>
       <div className="bg-secondary px-3 py-8 sm:px-4 sm:py-10 lg:px-10 lg:py-16 lg:flex xl:px-16 justify-center xl:justify-around items-center gap-10 flex-row-reverse">
         <div className=" mb-5 text-center">
-          <h1 className="text-3xl text-center  mb-10 font-normal text-mainDarkColor">
+          <h1 className="text-3xl text-center  mb-10 font-normal ">
             For a cake that&apos;s truly meant to be, order with Tubi.
           </h1>
-          <button className="transition-colors border rounded-lg text-lg hover:bg-accentColor  border-accentColor bg-peach text-mainLightColor px-4 py-2 ">
-            Order now
-          </button>
+          <Button type="button" label="Order now" />
         </div>
 
         <div className="sm:h-[500px] lg:w-[600px] xl:w-[800px]  max-w-full max-h-full h-[300px]">

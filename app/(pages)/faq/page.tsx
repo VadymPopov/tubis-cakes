@@ -1,3 +1,5 @@
+import FAQ from '@/app/components/FAQ';
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -20,10 +22,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FAQ() {
+export default function FAQPage() {
   return (
     <>
-      <section className="">FAQ</section>
+      <FAQ />
     </>
   );
 }
