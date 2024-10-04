@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between isolate z-50 w-full px-3 py-2.5 bg-peach">
+    <header className="flex items-center justify-between isolate z-50 w-full px-3 py-2.5 bg-peach ">
       <div className="flex gap-2.5 ">
         <Link
           href="https://www.instagram.com/tubiscakes.toronto/"

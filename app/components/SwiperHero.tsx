@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import '../swiper.css';
 
-export default function SwiperReact() {
+export default function SwiperHero() {
   const progressCircle = useRef<SVGSVGElement | null>(null);
   const progressContent = useRef<HTMLSpanElement | null>(null);
 
@@ -44,11 +44,7 @@ export default function SwiperReact() {
       >
         {heroImages.map((item, index) => (
           <SwiperSlide key={index}>
-            <Image
-              className="w-full overflow-hidden rounded-xl"
-              src={item}
-              alt={`cake-${index}`}
-            />
+            <Image src={item} alt={`cake-${index}`} />
           </SwiperSlide>
         ))}
         <div className="autoplay-progress" slot="container-end">

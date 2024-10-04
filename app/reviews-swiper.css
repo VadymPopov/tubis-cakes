@@ -1,0 +1,12 @@
+.reviews .swiper {
+  width: 100%;
+}
+
+.reviews .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+}

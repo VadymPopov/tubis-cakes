@@ -1,4 +1,5 @@
 import FAQ from '@/app/components/FAQ';
+import Section from '@/app/components/Section';
 
 import { Metadata } from 'next';
 
@@ -24,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <>
+    <Section className="bg-secondary">
       <FAQ />
-    </>
+    </Section>
   );
 }

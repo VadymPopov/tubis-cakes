@@ -19,12 +19,12 @@ const menu = [
     label: 'Create Your Own',
   },
   {
-    path: '/portfolio',
-    label: 'Portfolio',
-  },
-  {
     path: '/policies',
     label: 'Policies',
+  },
+  {
+    path: '/my-story',
+    label: 'My Story',
   },
   {
     path: '/faq',
@@ -32,20 +32,13 @@ const menu = [
   },
 ];
 
-type MenuProps = {
-  onClick?: () => void;
-};
-
-export default function Menu({ onClick }: MenuProps) {
+export default function Menu() {
   const router = useRouter();
   const pathname = usePathname();
   const isActive = (path: string) => path === pathname;
 
   const handleMenuClick = (path: string) => {
     router.push(path);
-    if (onClick) {
-      onClick();
-    }
   };
 
   return (

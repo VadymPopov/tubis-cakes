@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import throttle from 'lodash.throttle';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Menu from './Menu';
 
@@ -13,10 +12,6 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleMenuItemClick = () => {
-    setIsOpen(false);
-  };
 
   const handleCheckboxChange = () => {
     setIsOpen(!isOpen);
@@ -42,7 +37,7 @@ export default function Navigation() {
   return (
     <div
       className={clsx(
-        'bg-primary w-full h-40 md:h-full md:block flex justify-between items-center transition duration-500 ease-in-out z-[100]',
+        'bg-primary bg-contain bg-center w-full h-40 md:h-full md:block flex justify-between items-center transition duration-500 ease-in-out z-[100]',
         isVisible ? 'sticky top-0 opacity-100' : 'opacity-70',
       )}
     >
@@ -67,15 +62,11 @@ export default function Navigation() {
 
         <div className="fixed top-[202px] right-0 z-40 h-full w-full translate-x-[-100%] overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0">
           <nav className="float-right min-h-full w-full pt-14 sm:pt-10 shadow-2xl">
-            <Menu onClick={handleMenuItemClick} />
+            <Menu />
           </nav>
         </div>
       </label>
-      <Link
-        href="/"
-        className="sticky z-50 group md:hidden px-6"
-        onClick={handleMenuItemClick}
-      >
+      <div className="sticky z-50 group md:hidden px-6">
         <Image
           src="/logotype.svg"
           alt="logo"
@@ -83,7 +74,7 @@ export default function Navigation() {
           height="150"
           className="max-w-52 max-h-52"
         />
-      </Link>
+      </div>
     </div>
   );
 }
