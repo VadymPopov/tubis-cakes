@@ -39,9 +39,10 @@ export default function Menu({ handleClick }: { handleClick?: () => void }) {
   return (
     <ul className="flex flex-col md:flex-row list-none justify-center md:items-center">
       {menu.slice(0, 3).map(({ path, label }) => (
-        <li key={label} onClick={handleClick}>
+        <li key={label}>
           <Link
             href={path}
+            onClick={handleClick}
             className={clsx(
               path === '/' && 'md:hidden',
               isActive(path) ? 'text-mainLightColor' : 'text-mainDarkColor',
