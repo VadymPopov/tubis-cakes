@@ -33,7 +33,7 @@ export default function Header() {
       </div>
 
       <Link
-        href="shop"
+        href="/shop"
         className="ml-2.5 text-xs text-mainLightColor hover:underline"
       >
         Delivery is available in Toronto/GTA

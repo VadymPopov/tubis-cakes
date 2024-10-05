@@ -67,14 +67,14 @@ export default function Home() {
           className="object-cover w-full md:w-80 h-96 rounded-2xl mb-5"
         />
         <div className="max-w-96">
-          <Title level="h2" className="mb-5 md:mb-10 text-mainLightColor">
+          <Title level="h2" className="mb-5 md:mb-10 ">
             Get 10% Off Your First Order!
           </Title>
-          <span className="text-mainLightColor text-lg text-justify mb-5">
+          <span className=" text-lg text-justify mb-5">
             Sign up with your email below to receive 10% off your first
             Tubi&apos;s Cakes order.{' '}
           </span>
-          <span className="block text-mainLightColor text-lg text-justify mb-5 font-bold">
+          <span className="block  text-lg text-justify mb-5 font-bold">
             Don&apos;t miss out on sweet savings!
           </span>
 

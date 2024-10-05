@@ -21,7 +21,7 @@ const config: Config = {
         peach: '#FFB4D5',
         accentColor: '#ff74b1',
         mainLightColor: '#fff',
-        mainDarkColor: '#303030',
+        mainDarkColor: '#000',
         transparent: 'transparent',
         error: '#D2042D',
       },
