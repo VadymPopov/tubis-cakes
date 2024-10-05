@@ -57,7 +57,7 @@ export default function Navigation() {
       </button>
       <div
         className={clsx(
-          'fixed inset-0 z-40 h-full w-full backdrop-blur-3xl transition-opacity duration-500',
+          'fixed inset-0 z-30 h-full w-full backdrop-blur-3xl  transition-opacity duration-500',
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none',
         )}
       ></div>
