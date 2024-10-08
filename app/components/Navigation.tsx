@@ -64,11 +64,11 @@ export default function Navigation() {
 
       <div
         className={clsx(
-          'fixed top-[202px] right-0 z-40 h-full w-full overflow-y-auto overscroll-y-none transition-transform duration-500',
+          'fixed top-[202px] right-0 z-40 h-full w-full overflow-y-auto transition-transform duration-500',
           isOpen ? 'translate-x-0' : 'translate-x-[-100%]',
         )}
       >
-        <nav className="float-right min-h-full w-full pt-14 sm:pt-10 shadow-2xl">
+        <nav className="float-right min-h-full w-full pt-14 pb-80 sm:pt-10 shadow-2xl">
           <Menu handleClick={handleMenuItemClick} />
         </nav>
       </div>

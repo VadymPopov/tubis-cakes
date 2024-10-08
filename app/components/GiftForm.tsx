@@ -1,72 +1,65 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { useFormState } from 'react-dom';
+import { useTransition } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
-import clsx from 'clsx';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import { handlePromoEmailSubmit } from '../actions/promo';
+import { validationSchemaPromo } from '../schemas';
 import Button from './Button';
 
-const validateEmail = (email: FormDataEntryValue) => {
-  const RegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return RegEx.test(String(email).toLowerCase());
-};
-
-export async function FormSubmit(prevState: string, formData: FormData) {
-  const email = formData.get('email');
-
-  if (!email) {
-    return { status: 'error', message: 'Email is required' };
-  }
-
-  if (email && !validateEmail(email)) {
-    return { status: 'error', message: 'Invalid email address' };
-  }
-
-  const response = await fetch('/api', {
-    method: 'POST',
-    body: formData,
+export default function GiftForm() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchemaPromo),
+    mode: 'onBlur',
   });
+  const [isPending, startTransition] = useTransition();
 
-  const data = await response.json();
-  return data;
-}
+  const onSubmit = async (data: { email: string }) => {
+    startTransition(async () => {
+      const result = await handlePromoEmailSubmit(data);
+      reset();
 
-export default function GiftForm({ second }: { second?: boolean }) {
-  const [state, FormAction] = useFormState(FormSubmit, '');
-  const ref = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state.status === 200) {
-      toast.success(state.message);
-    } else {
-      toast.error(state.message);
-    }
-  }, [state]);
+      if (result?.success) {
+        toast.success(result.message);
+      } else {
+        toast.error(result.message);
+      }
+    });
+  };
 
   return (
-    <form
-      ref={ref}
-      className={clsx(
-        'mb-6 max-w-[432px] rounded-lg border border-accentColor bg-mainLightColor px-4 py-2 lg:mb-10',
-        second ? '' : 'mx-auto',
-      )}
-      action={(formData) => {
-        FormAction(formData);
-        if (state.status === 200) {
-          ref.current && ref.current.reset();
-        }
-      }}
-    >
-      <div className="flex justify-between">
-        <input
-          name="email"
-          className="w-48 p-2 text-sm outline-none sm:text-base"
-          placeholder="Enter your email"
-        />
-        <Button type="button" label="Get Offer" />
+    <div className="mb-6 lg:mb-10">
+      <form
+        className=" mb-2 max-w-[432px] rounded-lg border border-accentColor bg-mainLightColor px-4 py-2 "
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className="flex justify-between">
+          <input
+            {...register('email')}
+            placeholder="Enter your email"
+            className="w-48 p-2 text-sm outline-none sm:text-base"
+          />
+
+          <Button
+            type="submit"
+            label={isPending ? 'Sending...' : 'Get Offer'}
+            disabled={isPending}
+          />
+        </div>
+      </form>
+      <div className="h-2 text-center">
+        <span className="text-error  ">
+          {errors.email && errors.email.message}
+        </span>
       </div>
-    </form>
+    </div>
   );
 }

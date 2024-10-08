@@ -1,3 +1,5 @@
+import { Toaster } from 'react-hot-toast';
+
 import type { Metadata } from 'next';
 import { Comfortaa, Roboto_Mono } from 'next/font/google';
 
@@ -39,6 +41,7 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
