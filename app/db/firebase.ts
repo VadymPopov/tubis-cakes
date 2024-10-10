@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyC06Sq5fYaQxPLmKwM4ORU0DIzY6A8I6X0',
-  authDomain: 'tubis-cakes.firebaseapp.com',
-  projectId: 'tubis-cakes',
-  storageBucket: 'tubis-cakes.appspot.com',
-  messagingSenderId: '632530573355',
-  appId: '1:632530573355:web:6869bf67f46e709361726e',
-  measurementId: 'G-6NXWRWV66D',
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOM,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import TopLoader from '../components/TopLoader';
+import '../datepicker.css';
 import '../globals.css';
 
 const comfortaa = Comfortaa({

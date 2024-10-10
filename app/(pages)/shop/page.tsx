@@ -1,3 +1,5 @@
+import OrderForm from '@/app/components/OrderForm';
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,8 +25,17 @@ export const metadata: Metadata = {
 export default function Shop() {
   return (
     <>
-      <section className="flex justify-center items-center h-full bg-mint">
-        Shop
+      <section className="flex flex-col justify-center items-center h-full bg-mint">
+        <div className="pb-5">
+          <p>
+            For all Custom Order inquiries, please fill out the form below. We
+            will review the submissions and reach out to you directly. Due to
+            the high number of inquiries that we receive, please allow between 2
+            to 5 business days for us to get back to you Note:
+          </p>
+          <p>Minimum 7- to 10-days notice required for custom orders.</p>
+        </div>
+        <OrderForm />
       </section>
     </>
   );
